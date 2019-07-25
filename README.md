@@ -35,9 +35,9 @@ Follow these steps for completing your project.
 
 ## Minimum Viable Product
 
-- [ ] Build a custom hook that let's you save data to localStorage
-- [ ] Build a second custom hook that sets the `dark-mode` class on the body element
-- [ ] Compose your two new hooks together to be able to set and persist your user's dark mode preference in your app
+- [✓] Build a custom hook that let's you save data to localStorage
+- [✓] Build a second custom hook that sets the `dark-mode` class on the body element
+- [✓] Compose your two new hooks together to be able to set and persist your user's dark mode preference in your app
 <!--
 - [ ] Write tests that use mocks and spies to handle dependencies in your components
 -->
@@ -83,10 +83,10 @@ export const useLocalStorage = (key, initialValue) => {
 
 - [✓] Remember we're trying to use this hook like this: `const [name, setName] = useLocalStorage('name', 'Dustin')`. So far we have made the value part of the hook, but not the setter. Let's go ahead and create a setter function, and return that in the array as well.
   - [✓] inside the hook, write a function called `setValue` that takes a `value` parameter
-  - In `setValue`, set the `value` to localStorage using the `key` that was passed into the hook itself
-  - Also, update the state of `storedValue` with `value` as well
-  - Add `setValue` to the array that is being returned out of this hook
-  - `setValue` should look something like this:
+  - [✓] In `setValue`, set the `value` to localStorage using the `key` that was passed into the hook itself
+  - [✓] Also, update the state of `storedValue` with `value` as well
+  - [✓] Add `setValue` to the array that is being returned out of this hook
+  - [✓] `setValue` should look something like this:
 
 ```js
 const setValue = value => {
@@ -101,24 +101,24 @@ We're going to use this inside our dark mode hook, but this can be used anywhere
 
 ## STEP 2 - useDarkMode
 
-- Inside the `hooks` directory, add a new file called `useDarkMode`.
-- Build a function called `useDarkMode`.
-- Import `useLocalStorage`
-- Call `useLocalStorage` and pass in the key you want to use to store whether or not dark mode is enabled. Remember, this hook returns an array with a value and a setter in an array, exactly like the state hook, so make sure to capture those values in a `const` - `const [someValue, setSomeValue] = useLocalStorage('your key here')`
-- Now to add the class to the body. If we need to manipulate the DOM directly, how do we do that? Any direct DOM manipulation is considered a side effect, right? So let's use the effect hook.
-  -Import and set up your effect hook.
-  - Inside it, check to see if the value from `useLocalStorage` is true or false.
-  - If it's true, add the class `dark-mode` to the `body` element.
-  - If it's false, remove the class from the `body` element. (If you don't quite remember how to do this from ages and ages ago, Google will be your friend here 😉)
-  - We don't want this effect to run every time anything in the component changes, right? Think about what piece of data this hook depends on, and should be synced with, and add that in its dependency array.
-- Finally, we need to return something out of here so we can use this in our app. What do you think we'll need? We'll need to know if dark mode is enabled, right? And we'll need a setter function to toggle dark mode. Let's just forward the value and the setter that were returned out of the `useLocalStorage` call. Return those two values in an array as well.
+- [✓] Inside the `hooks` directory, add a new file called `useDarkMode`.
+- [✓] Build a function called `useDarkMode`.
+- [✓] Import `useLocalStorage`
+- [✓] Call `useLocalStorage` and pass in the key you want to use to store whether or not dark mode is enabled. Remember, this hook returns an array with a value and a setter in an array, exactly like the state hook, so make sure to capture those values in a `const` - `const [someValue, setSomeValue] = useLocalStorage('your key here')`
+- [✓] Now to add the class to the body. If we need to manipulate the DOM directly, how do we do that? Any direct DOM manipulation is considered a side effect, right? So let's use the effect hook.
+  - [✓] Import and set up your effect hook.
+  - [✓] Inside it, check to see if the value from `useLocalStorage` is true or false.
+  - [✓] If it's true, add the class `dark-mode` to the `body` element.
+  - [✓] If it's false, remove the class from the `body` element. (If you don't quite remember how to do this from ages and ages ago, Google will be your friend here 😉)
+  - [✓] We don't want this effect to run every time anything in the component changes, right? Think about what piece of data this hook depends on, and should be synced with, and add that in its dependency array.
+- [✓] Finally, we need to return something out of here so we can use this in our app. What do you think we'll need? We'll need to know if dark mode is enabled, right? And we'll need a setter function to toggle dark mode. Let's just forward the value and the setter that were returned out of the `useLocalStorage` call. Return those two values in an array as well.
 
 ## STEP 3 - Using the hook in a component
 
 Now that we have composed our different pieces of stateful logic, let's use it in our component!
 
-- import the dark mode hook into the `NavBar` component
-- Looking at this component, we see that we are controlling the toggle with some state. The state hook here returns a `darkMode` value, and a `setDarkMode` function. Isn't that exactly what our `useDarkMode` hook returns as well? Replace the state hook with our hook, click the toggle, and watch the magic happen!!!
+- [✓] import the dark mode hook into the `NavBar` component
+- [✓] Looking at this component, we see that we are controlling the toggle with some state. The state hook here returns a `darkMode` value, and a `setDarkMode` function. Isn't that exactly what our `useDarkMode` hook returns as well? Replace the state hook with our hook, click the toggle, and watch the magic happen!!!
 
 (If it wasn't magical, you have a bug somewhere 😫 go back through the steps slowly, one at a time, to see if you missed any of the steps)
 
